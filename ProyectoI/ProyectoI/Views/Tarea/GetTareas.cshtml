@@ -1,0 +1,412 @@
+﻿@model List<ProyectoI.Models.TareaModel>
+
+@{
+    ViewData["Title"] = "Dashboard de Tareas";
+}
+
+<h2>Dashboard de Tareas</h2>
+<div>
+    <!-- Botón para abrir el modal -->
+    <button id="btnCrearTarea" onclick="abrirModalCrearTarea()">Crear Tarea</button>
+</div>
+
+
+<!-- Lista de Tareas Pendientes -->
+<div class="task-list" id="Pendientes" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>Pendientes</h3>
+    @foreach (var tarea in Model.Where(t => t.Estado == "Pendientes"))
+    {
+        <div id="tarea_@tarea.Id" class="task" draggable="true" ondragstart="drag(event)" onclick="verTarea(@tarea.Id)">
+            <p>@tarea.Titulo</p>
+            <p>@tarea.Descripcion</p>
+        </div>
+    }
+</div>
+
+<!-- Lista de Tareas En Proceso -->
+<div class="task-list" id="EnProgreso" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>En Proceso</h3>
+    @foreach (var tarea in Model.Where(t => t.Estado == "EnProgreso"))
+    {
+        <div id="tarea_@tarea.Id" class="task" draggable="true" ondragstart="drag(event)" onclick="verTarea(@tarea.Id)">
+            <p>@tarea.Titulo</p>
+            <p>@tarea.Descripcion</p>
+        </div>
+    }
+</div>
+
+<!-- Lista de Tareas Finalizadas -->
+<div class="task-list" id="Finalizado" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>Finalizadas</h3>
+    @foreach (var tarea in Model.Where(t => t.Estado == "Finalizado"))
+    {
+        <div id="tarea_@tarea.Id" class="task" draggable="true" ondragstart="drag(event)" onclick="verTarea(@tarea.Id)">
+            <p>@tarea.Titulo</p>
+            <p>@tarea.Descripcion</p>
+        </div>
+    }
+</div>
+
+<!-- Modal para crear tarea -->
+<div id="modalCrearTarea" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalC()">&times;</span>
+        <h2>Crear Tarea</h2>
+        <form id="formCrearTarea" method="post" action="/Tarea/CrearTarea">
+            <div>
+                <label for="Titulo">Título</label>
+                <input type="text" id="Titulo" name="Titulo" required />
+            </div>
+            <div>
+                <label for="Descripcion">Descripción</label>
+                <textarea id="Descripcion" name="Descripcion" required></textarea>
+            </div>
+            <div>
+                <label for="FechaVencimiento">Fecha de Vencimiento</label>
+                <input type="date" id="FechaVencimiento" name="FechaVencimiento" required />
+            </div>
+            <div>
+                <label for="Prioridad">Prioridad</label>
+                <select id="Prioridad" name="Prioridad" required>
+                    <option value="Baja">Baja</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                </select>
+            </div>
+            <div class="form-group">
+        <label for="Estado">Estado</label>
+        <select class="form-control" id="Estado" name="Estado">
+            <option value="Pendientes"> Pendientes</option>
+            <option value="EnProgreso">EnProgreso</option>
+            <option value="Finalizado">Finalizado</option>
+        </select>
+    </div>
+            <button type="submit">Crear Tarea</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+<!-- Modal para mostrar la información de la tarea -->
+<div id="modalTarea" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Detalles de la tarea</h2>
+        <p><strong>ID:</strong> <span id="modalId"></span></p>
+        <p><strong>Título:</strong> <span id="modalTitulo"></span></p>
+        <p><strong>Descripción:</strong> <span id="modalDescripcion"></span></p>
+        <p><strong>Fecha Vencimiento:</strong> <span id="modalFechaVencimiento"></span></p>
+        <p><strong>Prioridad:</strong> <span id="modalPrioridad"></span></p>
+        <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
+        <p><strong>Usuario Asignado:</strong> <span id="modalUsuarioAsignado"></span></p>
+
+        <!-- Botón para abrir el modal de edición -->
+        <button class="btn btn-warning" id="btnEditar">Editar</button>
+    </div>
+</div>
+
+<!-- Modal para editar tarea -->
+<div id="modalEditarTarea" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModalEditar()">&times;</span>
+        <h2>Editar Tarea</h2>
+
+        <form id="formEditarTarea" method="post" action="/Tarea/ActualizarTarea">
+            <input type="hidden" id="MEtareaid" name="Id" />
+
+            <div class="form-group">
+                <label>Título</label>
+                <input type="text" id="METitulo" name="Titulo" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea id="MEDescripcion" name="Descripcion" class="form-control" required></textarea>
+            </div>
+
+            <div class="form-group">
+               
+                <p><strong>Fecha Vencimiento:</strong> 
+                    <span id="MESFechaVencimiento"></span></p>
+                <input type="date" id="MEFechaVencimiento" name="FechaVencimiento" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label>Prioridad</label>
+                <select id="MEPrioridad" name="Prioridad" class="form-control" required>
+                    <option value="Alta">Alta</option>
+                    <option value="Media">Media</option>
+                    <option value="Baja">Baja</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Estado</label>
+                <select id="MEEstado" name="Estado" class="form-control">
+                    <option value="Pendientes">Pendientes</option>
+                    <option value="EnProgreso">En Progreso</option>
+                    <option value="Finalizado">Finalizado</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <button type="button" class="btn btn-secondary" onclick="closeModalEditar()">Cancelar</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+<script>
+    // Permitir el drop de las tareas en las listas
+    function allowDrop(ev) {
+        ev.preventDefault();
+        if (ev.target.classList.contains('task-list')) {
+            ev.target.style.border = '2px dashed #000'; // Estilo para la lista donde puede soltar
+        }
+    }
+
+    // Configuración del drag
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    // Actualizar estado tarea y moverla visualmente
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var tareaId = data.split('_')[1]; // Obtener el ID de la tarea desde el elemento
+        var nuevaLista = ev.target.closest('.task-list').id;
+
+        // Eliminar borde de la lista al soltar
+        ev.target.style.border = '';
+
+        // Mapeo de estados
+        var estadoMap = {
+            "Pendientes": "Pendientes",
+            "EnProgreso": "EnProgreso", // Cambiar "En Progreso" por "EnProgreso"
+            "Finalizado": "Finalizado"
+        };
+
+        var nuevoEstado = estadoMap[nuevaLista];
+
+        if (nuevoEstado) {
+            fetch('/Tarea/CambiarEstado', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    tareaId: parseInt(tareaId),  // Convertir tareaId a entero
+                    nuevoEstado: nuevoEstado     // Asegúrate de que nuevoEstado sea una cadena
+                })
+            })
+                .then(response => {
+                    // Verificar si la respuesta fue exitosa
+                    if (!response.ok) {
+                        throw new Error('Hubo un error en la respuesta del servidor');
+                    }
+                    return response.json(); // Procesamos la respuesta como JSON
+                })
+                .then(data => {
+                 //   alert(data.message);  // Muestra el mensaje de la respuesta
+                    const tareaElemento = document.getElementById('tarea_' + data.tareaId);
+
+                    if (tareaElemento) {
+                        // Elimina la tarea de su lista actual
+                        tareaElemento.remove();
+
+                        // Encuentra la nueva lista a la que se moverá la tarea
+                        const nuevaListaElemento = document.getElementById(nuevaLista);
+
+                        // Agrega la tarea a la nueva lista
+                        nuevaListaElemento.appendChild(tareaElemento);
+
+                        // Cambiar la clase visual de la tarea según el estado
+                        tareaElemento.classList.remove("task-list-Pendientes", "task-list-EnProgreso", "task-list-Finalizado");
+                        tareaElemento.classList.add("task-list-" + nuevoEstado);
+                    } else {
+                        console.error("No se encontró el elemento con ID:", data.tareaId);
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    //alert('Hubo un error al realizar la solicitud');
+                });
+        }
+    }
+
+
+    // Mostrar detalles de la tarea en un modal
+    async function verTarea(tareaId) {
+        try {
+            const response = await fetch(`/Tarea/ObtenerTarea?id=${tareaId}`);
+
+            // Verificar si la respuesta es exitosa
+            if (!response.ok) {
+                throw new Error('Hubo un error en la respuesta del servidor');
+            }
+
+            const data = await response.json();  // Esperar y obtener los datos JSON
+
+            console.log(data);  // Ver el contenido de los datos en la consola
+
+            // Actualizar el modal con los datos
+            document.getElementById('modalId').textContent = data.id;
+            document.getElementById('modalTitulo').textContent = data.titulo;
+            document.getElementById('modalDescripcion').textContent = data.descripcion;
+            document.getElementById('modalFechaVencimiento').textContent = data.fechaVencimiento;
+            document.getElementById('modalPrioridad').textContent = data.prioridad;
+            document.getElementById('modalEstado').textContent = data.estado;
+            document.getElementById('modalUsuarioAsignado').textContent = data.usuarioAsignadoId;
+
+            // Asegurar que el botón de edición existe antes de asignarle el evento
+            const btnEditar = document.getElementById('btnEditar');
+            if (btnEditar) {
+                btnEditar.onclick = function () {
+                    abrirModalEditarTarea(data);
+                };
+            }
+
+            // Mostrar el modal
+            document.getElementById('modalTarea').style.display = "block";
+        } catch (error) {
+            console.error('Error al obtener los detalles de la tarea:', error);
+            alert('Hubo un error al obtener los detalles de la tarea.');
+        }
+    }
+
+
+    // Función para abrir el modal de editar tarea y cargar los datos
+    function abrirModalEditarTarea(tarea) {
+        if (!tarea) {
+            console.error("No se recibió la tarea para editar.");
+            return;
+        }
+
+        // Rellenar el formulario del modal de edición con los datos de la tarea
+        document.getElementById('MEtareaid').value = tarea.id;
+        console.log(tarea.fechaVencimiento)
+        document.getElementById('METitulo').value = tarea.titulo;
+        document.getElementById('MEDescripcion').value = tarea.descripcion;
+        document.getElementById('MEFechaVencimiento').value = tarea.fechaVencimiento;
+        document.getElementById('MESFechaVencimiento').textContent = tarea.fechaVencimiento;
+        document.getElementById('MEPrioridad').value = tarea.prioridad;
+        document.getElementById('MEEstado').value = tarea.estado;
+
+        // Cerrar el modal de detalles y abrir el modal de edición
+        closeModal();
+        document.getElementById('modalEditarTarea').style.display = 'block';
+    }
+
+
+
+
+
+    // Cerrar el modal
+    function closeModal() {
+        document.getElementById('modalTarea').style.display = "none";
+    }
+    // Función para abrir el modal de creación de tareas
+    function abrirModalCrearTarea() {
+        document.getElementById('modalCrearTarea').style.display = 'block';
+    }
+
+    // Función para cerrar el modal
+    function closeModalC() {
+        document.getElementById('modalCrearTarea').style.display = 'none';
+    }
+    function closeModalEditar() {
+        document.getElementById('modalEditarTarea').style.display = "none";
+    }
+
+
+</script>
+
+<style>
+    /* Estilos para el dashboard */
+    .task-list {
+        border: 2px solid #ccc;
+        padding: 10px;
+        width: 30%;
+        min-height: 300px;
+        float: left;
+        margin: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+
+    /* Estilos para las tareas */
+    .task {
+        background-color: #fff;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 3px;
+        cursor: move;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Estilos del modal */
+    .modal {
+        display: none; /* Escondido por defecto */
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4); /* Fondo oscuro */
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    input, textarea, select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #45a049;
+        }
+</style>
