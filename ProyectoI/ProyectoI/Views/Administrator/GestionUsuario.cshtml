@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Gestión de Usuarios";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center">Gestión de Usuarios</h2>
+
+    <div class="row">
+        <!-- Crear usuario manualmente -->
+        <div class="col-md-12s">
+            <div class="card shadow p-4">
+                <h4 class="text-primary">Crear Usuario Manualmente</h4>
+                <form method="post" asp-action="GestionUsuario">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="email" class="form-control" id="correo" name="correo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contrasenna" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="contrasenna" name="contrasenna" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">Crear Usuario</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

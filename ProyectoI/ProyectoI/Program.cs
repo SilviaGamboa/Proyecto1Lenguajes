@@ -6,10 +6,17 @@ builder.Services.AddHttpClient();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Registrar el repositorio de usuarios
+builder.Services.AddScoped<IUserRepository>(sp => new UserRepository(builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new Exception("Connection string not found")));
+
 // Agregar la inyección de dependencias para ITareasRepository
 builder.Services.AddScoped<ITareasRepository>(sp =>
     new TareasRepository(builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new Exception("Connection string not found")));
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -30,6 +37,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();

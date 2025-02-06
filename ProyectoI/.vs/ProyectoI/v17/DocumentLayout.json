@@ -1,40 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\views\\tarea\\gettareas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\views\\tarea\\gettareas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\controllers\\tareacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\controllers\\tareacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\repositories\\tareasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\repositories\\tareasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\repositories\\itareasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\repositories\\itareasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\models\\tareamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\models\\tareamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -42,8 +9,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 753,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": -1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -55,114 +26,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Program.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Program.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Program.cs",
-              "RelativeToolTip": "ProyectoI\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T20:48:44.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\appsettings.json",
-              "RelativeDocumentMoniker": "ProyectoI\\appsettings.json",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\appsettings.json",
-              "RelativeToolTip": "ProyectoI\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-06T20:48:18.866Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\Home\\Privacy.cshtml",
-              "RelativeDocumentMoniker": "ProyectoI\\Views\\Home\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\Home\\Privacy.cshtml",
-              "RelativeToolTip": "ProyectoI\\Views\\Home\\Privacy.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-06T20:48:06.898Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TareaController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\TareaController.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Controllers\\TareaController.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\TareaController.cs",
-              "RelativeToolTip": "ProyectoI\\Controllers\\TareaController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJYAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T20:47:15.972Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetTareas.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
-              "RelativeDocumentMoniker": "ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
-              "RelativeToolTip": "ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-06T20:46:43.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TareasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\TareasRepository.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Repositories\\TareasRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\TareasRepository.cs",
-              "RelativeToolTip": "ProyectoI\\Repositories\\TareasRepository.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAA1wBMAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T20:41:22.815Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TareaModel.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Models\\TareaModel.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Models\\TareaModel.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Models\\TareaModel.cs",
-              "RelativeToolTip": "ProyectoI\\Models\\TareaModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T20:39:40.393Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ITareasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\ITareasRepository.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Repositories\\ITareasRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\ITareasRepository.cs",
-              "RelativeToolTip": "ProyectoI\\Repositories\\ITareasRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T20:38:40.963Z",
-              "EditorCaption": ""
             }
           ]
         }

@@ -1,0 +1,30 @@
+﻿@model MailModel
+
+@{
+    ViewBag.Title = "Enviar Correo";
+}
+
+<h2 class="text-center my-4">Enviar invitación por correo</h2>
+
+<div class="container">
+    <form method="post">
+        <fieldset class="border p-4 shadow-lg">
+            <legend class="w-auto text-center">Datos del Correo</legend>
+
+            <!-- Campo para el correo del destinatario -->
+            <div class="form-group mb-3">
+                <label for="To">Correo electrónico del destinatario:</label>
+                @Html.TextBoxFor(m => m.To, new { @class = "form-control", id = "To", placeholder = "Ingresa el correo del destinatario" })
+            </div>
+
+            <!-- Botón para enviar -->
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-success btn-lg w-50">Enviar Correo</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+
+
+
