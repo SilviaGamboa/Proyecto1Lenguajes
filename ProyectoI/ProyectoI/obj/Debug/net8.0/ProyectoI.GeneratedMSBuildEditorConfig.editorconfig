@@ -9,65 +9,63 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProyectoI
 build_property.RootNamespace = ProyectoI
-build_property.ProjectDir = C:\Users\Kenneth Oshima\OneDrive\Documentos\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI\
+build_property.ProjectDir = C:\Users\User\Documents\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Kenneth Oshima\OneDrive\Documentos\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI
+build_property.MSBuildProjectDirectory = C:\Users\User\Documents\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI
 build_property._RazorSourceGeneratorDebug = 
-build_property.EffectiveAnalysisLevelStyle = 8.0
-build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Account/CerrarSesion.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Account/CerrarSesion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDZXJyYXJTZXNpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Account/Login.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Administrator/GestionUsuario.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Administrator/GestionUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxHZXN0aW9uVXN1YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Administrator/Perfil.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Administrator/Perfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRvclxQZXJmaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Home/Index.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Home/Privacy.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/SendMailer/Index.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/SendMailer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VuZE1haWxlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Shared/Error.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Tarea/GetTareas.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Tarea/GetTareas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFyZWFcR2V0VGFyZWFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/_ViewImports.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/_ViewStart.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kenneth Oshima/OneDrive/Documentos/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Shared/_Layout.cshtml]
+[C:/Users/User/Documents/GitHub/Proyecto1Lenguajes/ProyectoI/ProyectoI/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-mvdqo8hfyr

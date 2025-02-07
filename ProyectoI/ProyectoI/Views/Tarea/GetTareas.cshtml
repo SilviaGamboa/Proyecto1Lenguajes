@@ -4,10 +4,10 @@
     ViewData["Title"] = "Dashboard de Tareas";
 }
 
-<h2>Dashboard de Tareas</h2>
-<div id="btnFunciones">
+<h2 class="text-center text-dark fw-bold">Dashboard de Tareas  </h2>
+<div id="btnFunciones" class="container text-center mt-4">
     <!-- Botón para abrir el modal -->
-    <button id="btnCrearTarea" onclick="abrirModalCrearTarea()">Crear Tarea</button>
+    <button id="btnCrearTarea" class="btn btn-success" onclick="abrirModalCrearTarea()">Crear Tarea</button>
 </div>
 
 
@@ -179,37 +179,43 @@
     document.addEventListener("DOMContentLoaded", function () {
         console.log(esAdmin)
         if (esAdmin) {
-            const btnFunciones = document.getElementById("btnFunciones");//div de botones
+            const btnFunciones = document.getElementById("btnFunciones"); // Div de botones
+           btnFunciones.style.display = "flex";
+            btnFunciones.style.flexWrap = "wrap";
+            btnFunciones.style.gap = "10px"; 
 
             const btnGestionUsuarios = document.createElement("button");
             btnGestionUsuarios.textContent = "Crear Usuarios";
-            btnGestionUsuarios.className="btn btn-primary"
+            btnGestionUsuarios.className = "btn btn-primary";
             btnGestionUsuarios.onclick = function () {
                 console.log("Redirige a gestión de usuarios");
                 window.location.href = "/Administrator/GestionUsuario";
-
             };
+
             const btnInvitacion = document.createElement("button");
-            btnInvitacion.textContent = "Envia Invitacion";
-            btnInvitacion.className = "btn btn-primary"
+            btnInvitacion.textContent = "Enviar Invitación";
+            btnInvitacion.className = "btn btn-primary";
             btnInvitacion.onclick = function () {
-                console.log("Redirige a gestión de usuarios");
+                console.log("Redirige a envío de invitaciones");
                 window.location.href = "/SendMailer/Index";
-
             };
-
-
 
             btnFunciones.appendChild(btnInvitacion);
             btnFunciones.appendChild(btnGestionUsuarios);
         } else {
+            const btnFunciones = document.getElementById("btnFunciones");
+           btnFunciones.style.display = "flex";
+           btnFunciones.style.flexWrap = "wrap";
+           btnFunciones.style.gap = "10px"; 
+
             const btnEditarPerfil = document.createElement("button");
             btnEditarPerfil.textContent = "Editar Perfil";
-            btnEditarPerfil.className = "btn btn-primary"
+            btnEditarPerfil.className = "btn btn-primary";
             btnEditarPerfil.onclick = function () {
-                console.log("Redirige a editar perfil usuario");
+                console.log("Redirige a editar perfil de usuario");
                 window.location.href = "/Administrator/Perfil";
             };
+
             btnFunciones.appendChild(btnEditarPerfil);
         }
     });
