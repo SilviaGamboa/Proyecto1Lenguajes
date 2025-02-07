@@ -9,11 +9,15 @@ namespace ProyectoI.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IEmailRepository _emailRepository;
+        private readonly IEncriptadorRepository _encriptadorRepository; 
 
-        public SendMailerController(IUserRepository userRepository, IEmailRepository emailRepository)
+
+        public SendMailerController(IUserRepository userRepository, IEmailRepository emailRepository, IEncriptadorRepository encriptadorRepository)
         {
             _userRepository = userRepository;
             _emailRepository = emailRepository;
+            _encriptadorRepository = encriptadorRepository; 
+
         }
 
         public ActionResult Index()
@@ -29,7 +33,10 @@ namespace ProyectoI.Controllers
                 try
                 {
                     string contrasennaGenerada = _emailRepository.GenerarContrasennaSegura();
-                    bool resultado = await _userRepository.CreateUserAsync("Invitado", model.To, contrasennaGenerada);
+
+                    string contrasennaEncriptada = _encriptadorRepository.Encriptar(contrasennaGenerada);
+
+                    bool resultado = await _userRepository.CreateUserAsync("Invitado", model.To, contrasennaEncriptada);
 
                     if (resultado)
                     {

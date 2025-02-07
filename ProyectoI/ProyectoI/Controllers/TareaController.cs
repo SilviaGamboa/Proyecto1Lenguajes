@@ -50,7 +50,6 @@ namespace ProyectoI.Controllers
         }
 
         [HttpGet]
-
         public IActionResult GetTareas()
         {
             List<TareaModel> tareas = _tareaRepository.GetAllTareas();

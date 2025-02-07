@@ -5,7 +5,7 @@ namespace ProyectoI.Repositories
     public interface IUserRepository
     {
         // Método para autenticar al usuario por nombre y contraseña
-        Task<UserModel> AuthenticateUserAsync(string correo, string contrasenna);
+        Task<UserModel> AuthenticateUserAsync(string correo);
 
         Task<bool> CreateUserAsync(string nombre, string correo, string contrasenna);
         List<UserModel> GetAllUsers();
