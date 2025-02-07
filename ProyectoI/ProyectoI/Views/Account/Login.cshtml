@@ -2,6 +2,7 @@
     ViewData["Title"] = "Login";
 }
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,41 +15,55 @@
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h2 class="text-center">Iniciar sesión</h2>
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-lg" style="background-color: #ffffff;">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4" style="color: #124f91;">Iniciar sesión</h2>
 
-                @if (ViewBag.ErrorMessage != null)
-                {
-                    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
-                }
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <div class="alert alert-danger text-center">@ViewBag.ErrorMessage</div>
+                        }
 
-                <form method="post" asp-action="Login">
-                    <div class="form-group mb-3">
-                        <label for="correo">Correo</label>
-                        <input type="text" class="form-control" id="correo" name="correo" required placeholder="Introduce tu correo" />
-                    </div>
+                        <form method="post" asp-action="Login">
+                            <div class="form-group mb-3">
+                                <label for="correo" class="form-label" style="color: #124f91;">Correo</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" style="background-color: #124f91; color: #ffffff;"><i class="bi bi-envelope"></i></span>
+                                    <input type="text" class="form-control form-control-lg" id="correo" name="correo" required placeholder="Introduce tu correo" style="border-color: #124f91;" />
+                                </div>
+                            </div>
 
-                    <div class="form-group mb-3">
-                        <label for="contrasenna">Contraseña</label>
-                        <input type="password" class="form-control" id="contrasenna" name="contrasenna" required placeholder="Introduce tu contraseña" />
-                    </div>
+                            <div class="form-group mb-3">
+                                <label for="contrasenna" class="form-label" style="color: #124f91;">Contraseña</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" style="background-color: #124f91; color: #ffffff;"><i class="bi bi-lock"></i></span>
+                                    <input type="password" class="form-control form-control-lg" id="contrasenna" name="contrasenna" required placeholder="Introduce tu contraseña" style="border-color: #124f91;" />
+                                </div>
+                            </div>
 
-                    <button type="submit" class="btn btn-primary w-100" id="btnLogin">
+                            <button type="submit" class="btn btn-primary w-100 btn-lg" id="btnLogin" style="background-color: #124f91; border-color: #124f91;">
                                 Iniciar sesión
                             </button>
+
                             <div class="text-center mt-3">
                                 <div id="spinner" class="spinner-border text-primary" style="width: 3rem; height: 3rem; display: none;" role="status">
                                     <span class="visually-hidden">Cargando...</span>
                                 </div>
                             </div>
-                </form>
+                        </form>
 
-                <div class="text-center mt-3">
-                    <p>Proyecto Lenguajes Kenneth OShima y Silvia Gamboa</a></p>
+                        <div class="text-center mt-4">
+                            <p class="small" style="color: #124f91;">ProyectoI-Lenguajes</p>
+                            <p class="small" style="color: #124f91;">Kenneth Oshima y Silvia Gamboa</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
