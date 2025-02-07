@@ -38,7 +38,7 @@ namespace ProyectoI.Controllers
         public IActionResult CrearTarea(TareaModel tarea)
         {
             //el id de la tarea se puede agregar en el frot, borrar esto
-            tarea.UsuarioCreadorId = 1;
+            //tarea.UsuarioCreadorId = 1;
             _tareaRepository.CreateTarea(tarea);
             return RedirectToAction("GetTareas");
         }
