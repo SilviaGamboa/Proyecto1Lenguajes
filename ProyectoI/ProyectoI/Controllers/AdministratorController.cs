@@ -1,23 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoI.Repositories;
-using System.Security.Cryptography;
-using MailKit.Net.Smtp;
-using MimeKit;
-using System;
 using ProyectoI.Models;
+using System.Threading.Tasks;
 
 namespace ProyectoI.Controllers
 {
     public class AdministratorController : Controller
     {
         private readonly IUserRepository _userRepository;
-        private readonly IConfiguration _configuration;
+        private readonly IEncriptadorRepository _encriptadorRepository;  // Inyectar el repositorio de encriptación
 
-        public AdministratorController(IUserRepository userRepository, IConfiguration configuration)
+        public AdministratorController(IUserRepository userRepository, IEncriptadorRepository encriptadorRepository)
         {
             _userRepository = userRepository;
-            _configuration = configuration;
-
+            _encriptadorRepository = encriptadorRepository;  // Guardar la referencia del repositorio de encriptación
         }
 
         // Método para mostrar la vista de gestión de usuarios
@@ -30,7 +26,11 @@ namespace ProyectoI.Controllers
         [HttpPost]
         public async Task<IActionResult> GestionUsuario(string nombre, string correo, string contrasenna)
         {
-            bool resultado = await _userRepository.CreateUserAsync(nombre, correo, contrasenna);
+            // Encriptar la contraseña antes de guardarla
+            var contrasennaEncriptada = _encriptadorRepository.Encriptar(contrasenna);
+
+            // Crear usuario con la contraseña encriptada
+            bool resultado = await _userRepository.CreateUserAsync(nombre, correo, contrasennaEncriptada);
 
             if (resultado)
             {
@@ -43,7 +43,8 @@ namespace ProyectoI.Controllers
 
             return RedirectToAction("GestionUsuario");
         }
-        //Obteber usuarios
+
+        // Obtener usuarios
         [HttpGet]
         public IActionResult GetUsers()
         {
@@ -51,7 +52,7 @@ namespace ProyectoI.Controllers
             return Json(users);
         }
 
-        //Obtener usuario por id
+        // Obtener usuario por id
         [HttpGet]
         public IActionResult GetUserById(int id)
         {
@@ -69,7 +70,7 @@ namespace ProyectoI.Controllers
             return View();
         }
 
-
+        // Actualizar perfil de usuario
         [HttpPost]
         public IActionResult UpdateProfile([FromBody] UserModel user)
         {
@@ -87,7 +88,5 @@ namespace ProyectoI.Controllers
 
             return Json(new { success = true, message = "Perfil actualizado correctamente" });
         }
-
-
     }
-}   
+}

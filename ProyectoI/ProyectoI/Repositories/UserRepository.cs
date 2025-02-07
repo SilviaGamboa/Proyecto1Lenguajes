@@ -12,35 +12,41 @@ namespace ProyectoI.Repositories
             _connectionString = connectionString;
         }
 
-        // Método para autenticar un usuario por nombre y contraseña
-        public async Task<UserModel> AuthenticateUserAsync(string correo, string contrasenna)
+        // Método para autenticar un usuario por correo
+        public async Task<UserModel> AuthenticateUserAsync(string correo)
         {
             UserModel user = null;
-            string query = "EXEC AutenticarUsuario @Correo, @Contrasenna"; // Llamamos al SP para autenticar al usuario
+            string query = "EXEC AuthenticateUserByEmail @Correo"; // Llamamos al SP para autenticar al usuario por correo
+
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
+
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    // Agregamos el parámetro de correo al comando
                     command.Parameters.AddWithValue("@Correo", correo);
-                    command.Parameters.AddWithValue("@Contrasenna", contrasenna);
 
+                    // Ejecutamos el comando y leemos los resultados
                     SqlDataReader reader = await command.ExecuteReaderAsync();
 
                     if (reader.Read()) // Si encontramos un usuario
                     {
+                        // Asignamos los valores del usuario al modelo
                         user = new UserModel
                         {
                             Id = Convert.ToInt32(reader["Id"]),
                             Nombre = reader["Nombre"]?.ToString(),
                             Correo = reader["Correo"]?.ToString(),
-                            Contrasenna = reader["Contrasenna"]?.ToString()
+                            Contrasenna = reader["Contrasenna"]?.ToString() // La contraseña está encriptada en la base de datos
                         };
                     }
                 }
             }
-            return user; // Si el usuario no es encontrado, retorna null
+
+            return user; // Retorna el usuario encontrado o null si no se encuentra
         }//fin metodo
+
 
         public async Task<bool> CreateUserAsync(string nombre, string correo, string contrasenna)
         {
