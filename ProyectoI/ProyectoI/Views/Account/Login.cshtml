@@ -44,6 +44,38 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Evita el envío tradicional del formulario
+
+                let formData = new FormData(form);
+
+                fetch("/Account/Login", {
+                    method: "POST",
+                    body: new URLSearchParams(formData) // Enviar los datos correctamente
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        if (data.isAdmin) {
+                            sessionStorage.setItem("admin", "true");
+                        } else {
+                            sessionStorage.setItem("user", JSON.stringify(data.user));
+                        }
+
+                        window.location.href = "/Home/Index"; // Redirigir a la página principal
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => console.error("Error en la solicitud:", error));
+            });
+        });
+    </script>
+
 </body>
 </html>
 
