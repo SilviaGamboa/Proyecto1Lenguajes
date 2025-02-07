@@ -12,11 +12,17 @@ namespace ProyectoI.Controllers
 
         private readonly HttpClient _httpClient;
         private readonly ITareasRepository _tareaRepository;
-        public TareaController(ILogger<TareaController> logger, HttpClient httpClient, ITareasRepository tareaRepository)
+        private readonly IEmailRepository _emailRepository;
+        private readonly IUserRepository _userRepository;
+
+
+        public TareaController(ILogger<TareaController> logger, HttpClient httpClient, ITareasRepository tareaRepository, IEmailRepository emailRepository, IUserRepository userRepository)
         {
             _logger = logger;
             _httpClient = httpClient;
             _tareaRepository = tareaRepository;
+            _emailRepository = emailRepository;
+            _userRepository = userRepository;
         }
         public IActionResult Privacy()
         {
@@ -94,12 +100,23 @@ namespace ProyectoI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AsignarUsuario(int tareaId, int usuarioId)
+        public async Task<IActionResult> AsignarUsuario(int tareaId, int usuarioId)
         {
             bool asignado = _tareaRepository.AsignarUsuarioATarea(tareaId, usuarioId);
             if (!asignado)
             {
                 return BadRequest("No se pudo asignar el usuario a la tarea.");
+            }
+
+            // Obtener los datos del usuario y tarea asignados
+            var tarea = _tareaRepository.GetTareaById(tareaId);
+            var usuario = _userRepository.GetUserByID(usuarioId);
+
+            // Enviar correo notificando la asignación de tarea
+            bool correoEnviado = await _emailRepository.EnviarCorreoAsignacionTareaAsync(usuario.Correo, usuario.Nombre, tarea.Titulo);
+            if (!correoEnviado)
+            {
+                _logger.LogError("Error al enviar correo de asignación de tarea.");
             }
 
             return RedirectToAction("GetTareas");
@@ -121,7 +138,7 @@ namespace ProyectoI.Controllers
             return Json(tarea);
         }
         [HttpPost]
-        public IActionResult CambiarEstado([FromBody] JsonElement request)
+        public async Task<IActionResult> CambiarEstado([FromBody] JsonElement request)
         {
             if (request.ValueKind == JsonValueKind.Undefined ||
                 !request.TryGetProperty("tareaId", out var tareaId) ||
@@ -147,6 +164,20 @@ namespace ProyectoI.Controllers
             {
                 return BadRequest(new { message = "No se pudo cambiar el estado." });  // Devolver como JSON
             }
+
+            // Obtener los datos de la tarea y el usuario asignado
+            var tarea = _tareaRepository.GetTareaById(tareaIdValue);
+
+            if (tarea.UsuarioAsignadoId.HasValue)
+            {
+                var usuario = _userRepository.GetUserByID(tarea.UsuarioAsignadoId.Value);
+                // Enviar correo notificando el cambio de estado
+                bool correoEnviado = await _emailRepository.EnviarCorreoCambioEstadoTareaAsync(usuario.Correo, usuario.Nombre, tarea.Titulo, nuevoEstadoValue);
+                if (!correoEnviado)
+                {
+                    _logger.LogError("Error al enviar correo de cambio de estado de tarea.");
+                }
+            } 
 
             return Ok(new { message = "Estado actualizado correctamente.", tareaId = tareaIdValue, nuevoEstado = nuevoEstadoValue });
         }

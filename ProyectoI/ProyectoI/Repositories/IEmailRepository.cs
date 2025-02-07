@@ -1,5 +1,4 @@
 ﻿using ProyectoI.Models;
-using System.Threading.Tasks;
 
 namespace ProyectoI.Repositories
 {
@@ -16,4 +15,4 @@ namespace ProyectoI.Repositories
     }
 
 }
-}
+

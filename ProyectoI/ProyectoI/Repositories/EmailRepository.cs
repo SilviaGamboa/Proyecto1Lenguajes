@@ -91,7 +91,7 @@ namespace ProyectoI.Repositories
                     client.Connect("smtp.gmail.com", 587, false);
 
                     // Autenticación con la contraseña de la aplicación (debería ser segura)
-                    client.Authenticate("tuemail@gmail.com", "tu_contrasena_de_aplicacion");
+                    client.Authenticate("kennethkor3206@gmail.com", "hqraykzyqqlpingu");
 
                     // Enviar el correo
                     await client.SendAsync(message);

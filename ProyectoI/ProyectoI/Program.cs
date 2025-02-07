@@ -15,6 +15,8 @@ builder.Services.AddScoped<ITareasRepository>(sp =>
     new TareasRepository(builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new Exception("Connection string not found")));
 
+builder.Services.AddScoped<IEmailRepository, EmailRepository>(); // Registra el servicio
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
