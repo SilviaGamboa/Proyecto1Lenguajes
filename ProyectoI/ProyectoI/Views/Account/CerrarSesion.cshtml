@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Cerrar Sesion";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div id="confirmLogout" class="text-center">
+                <p>¿Está seguro que desea cerrar sesión?</p>
+                <button class="btn btn-primary" onclick="confirmarCerrarSesion()">Sí</button>
+                <button class="btn btn-secondary" onclick="cancelarCerrarSesion()">No</button>
+            </div>
+
+            <!-- Spinner oculto, centrado en el container -->
+            <div class="text-center mt-3" id="spinnerContainer" style="display: none;">
+                <div id="spinner" class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Cerrando sesión...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmarCerrarSesion() {
+        // Mostrar spinner y ocultar los botones
+        document.getElementById("confirmLogout").style.display = "none";
+        document.getElementById("spinnerContainer").style.display = "block";
+
+        // Limpiar sessionStorage
+        sessionStorage.clear();
+
+        // Simular un pequeño retraso antes de redirigir
+        setTimeout(() => {
+            window.location.href = "/Account/Login";
+        }, 3000);
+    }
+
+    function cancelarCerrarSesion() {
+        setTimeout(() => {
+            // Mostrar spinner y ocultar los botones
+            document.getElementById("confirmLogout").style.display = "none";
+            document.getElementById("spinnerContainer").style.display = "block";
+            window.location.href = "/Tarea/GetTareas";
+        }, 1000);
+       
+    }
+</script>
+

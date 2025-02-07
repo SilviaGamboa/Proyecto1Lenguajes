@@ -173,8 +173,8 @@
 
 <script>
 
-    //cargar botones segun el usuario
-    const esAdmin = sessionStorage.getItem("admin") ; 
+    //-----------------------------------------------------CARGAR BOTONES SEGUN EL USARIO-----------------------------------------------------------------------------
+    const esAdmin = sessionStorage.getItem("admin") ; //VARIABLE PARA SABER SI EL USUARIO LOGADO ES ADMIN O NO Y ASI PONER LAS FUNCIONES SEGUN SEA
 
     document.addEventListener("DOMContentLoaded", function () {
         console.log(esAdmin)
@@ -208,12 +208,15 @@
             btnEditarPerfil.className = "btn btn-primary"
             btnEditarPerfil.onclick = function () {
                 console.log("Redirige a editar perfil usuario");
-                // window.location.href = "gestion_usuarios.html";
+                window.location.href = "/Administrator/Perfil";
             };
             btnFunciones.appendChild(btnEditarPerfil);
         }
     });
 
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    //-----------------------------------------------FUNCIONES PARA DRAG AND DROP-----------------------------------------------------------------------------------------------------
 
     // Permitir el drop de las tareas en las listas
     function allowDrop(ev) {
@@ -292,6 +295,18 @@
                 });
         }
     }
+
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    //------------------------------------------------------------------- FUNCIONES PARA CREAR TAREAS----------------------------------------------------------------------------------------------------
+
+    //ANTES DE ENVIAR EL FORMULARIO CON LOS DATOS INGRESADOS AL CONTROLLER, LE AGREGA EL ID DEL USUARIO LOGUEADO
+
+    // Función para abrir el modal de creación de tareas
+    function abrirModalCrearTarea() {
+        document.getElementById('modalCrearTarea').style.display = 'block';
+    }
+
     //funcion para asignar el id del usuario creador
     document.getElementById("formCrearTarea").onsubmit = function (event) {
         let usuarioCreadorId;
@@ -315,8 +330,18 @@
         // Asignar el ID dinámicamente al campo oculto
         document.getElementById("UsuarioCreadorId").value = usuarioCreadorId;
     };
+    
 
-    // Mostrar detalles de la tarea en un modal
+    // Función para cerrar el modal
+    function closeModalC() {
+        document.getElementById('modalCrearTarea').style.display = 'none';
+    }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    //---------------------------------------------------------VER DETALLES DE LA TAREA-------------------------------------------------------------------------------------------------------------
+
+    // Mostrar detalles de la tarea el modal
     async function verTarea(tareaId) {
         try {
             const response = await fetch(`/Tarea/ObtenerTarea?id=${tareaId}`);
@@ -340,19 +365,20 @@
             document.getElementById('modalEstado').textContent = data.estado;
            
             // Obtener y asignar el nombre del usuario creador
-            const usuarioCreadorNombre = await obtenerNombreUsuario(data.usuarioCreadorId);
+            const usuarioCreadorNombre = await obtenerNombreUsuario(data.usuarioCreadorId);//llama a la funcion que retorna el nombre del usuario por id
             document.getElementById('modalUsuarioCreador').textContent = usuarioCreadorNombre;
 
             const usuarioAsignadoElement = document.getElementById('modalUsuarioAsignado');
 
             // Si `usuarioAsignadoId` es un número válido, obtener su nombre, si no, mostrar mensaje
             if (data.usuarioAsignadoId && !isNaN(data.usuarioAsignadoId)) {
-                const usuarioAsignadoNombre = await obtenerNombreUsuario(data.usuarioAsignadoId);
+                const usuarioAsignadoNombre = await obtenerNombreUsuario(data.usuarioAsignadoId); //llama a la funcion que retorna el nombre del usuario por id
                 usuarioAsignadoElement.textContent = usuarioAsignadoNombre;
             } else {
                 usuarioAsignadoElement.textContent = "Aún no ha sido asignada a ningún usuario";
             }
             
+            // AGREGAR BOTONES 
 
             // Asegurar que el botón de edición existe antes de asignarle el evento
             const btnEditar = document.getElementById('btnEditar');
@@ -381,7 +407,7 @@
                     document.getElementById('modalFooter').appendChild(btnEliminar);
                 }
             }
-            cargarUsuariosEnSelect();
+            cargarUsuariosEnSelect(); // llama a la funcion que xtrae los usuarios de la bd para poder asignar uno a una tarea
             
             // Mostrar el modal
             document.getElementById('modalTarea').style.display = "block";
@@ -390,6 +416,35 @@
             alert('Hubo un error al obtener los detalles de la tarea.');
         }
     }
+
+
+    //Obtener nombre de usuario por id
+
+    async function obtenerNombreUsuario(id) {
+        try {
+            const response = await fetch(`/Administrator/GetUserById?id=${id}`);
+
+            if (!response.ok) {
+                throw new Error("Usuario no encontrado");
+            }
+
+            const user = await response.json();
+            return user.nombre; // Ajusta según la estructura de tu modelo
+        } catch (error) {
+            console.error("Error al obtener el usuario:", error);
+            return "Usuario no encontrado"; // Mensaje en caso de error
+        }
+    }
+
+    // Cerrar el modal editar
+    function closeModal() {
+        document.getElementById('modalTarea').style.display = "none";
+    }
+
+    //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    //-----------------------------------------------------------------FFUNSION ELIMINAR TAREA SOLO PARA ADMINS------------------------------------------------------------------------------------------------------------------------
 
     //Funcion Eliminar Tarea
     async function eliminarTarea(tareaId) {
@@ -416,6 +471,11 @@
             }
         }
     }
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    //--------------------------------------------------------------FUNCIONES PARA OPTENER USUARIOS Y CARGARLOS AL SELECT DE ASIGNAR USUARIOS Y ASIGNAR TAREA A USUARIO---------------------------------------------------------------------------------------------
+
     //funcion obtener usuarios
         async function obtenerUsuarios() {
         try {
@@ -442,7 +502,7 @@
         selectUsuarios.innerHTML = '<option value="">Seleccione un usuario</option>';
 
         // Agregar cada usuario como opción
-        usuarios.forEach(user => {
+        usuarios.slice(1).forEach(user => {
             const option = document.createElement('option');
             option.value = user.id;  // Ajusta según la estructura de UserModel
             option.textContent = user.nombre;  // Ajusta según tu modelo
@@ -486,8 +546,9 @@
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
+    //---------------------------------------------------------------FUNCIONES PARA ABRIR EL MODAL DE EDITAR TAREA Y ACTUALIZAR TAREA-------------------------------------------------------------------------------------------------------------------------------------------------
 
     // Función para abrir el modal de editar tarea y cargar los datos
     function abrirModalEditarTarea(tarea) {
@@ -511,43 +572,17 @@
         document.getElementById('modalEditarTarea').style.display = 'block';
     }
 
-    //Obtener nombre de usuario por id
-
-    async function obtenerNombreUsuario(id) {
-        try {
-            const response = await fetch(`/Administrator/GetUserById?id=${id}`);
-
-            if (!response.ok) {
-                throw new Error("Usuario no encontrado");
-            }
-
-            const user = await response.json();
-            return user.nombre; // Ajusta según la estructura de tu modelo
-        } catch (error) {
-            console.error("Error al obtener el usuario:", error);
-            return "Usuario no encontrado"; // Mensaje en caso de error
+    //Ccerrar modal editar
+     function closeModalEditar() {
+            document.getElementById('modalEditarTarea').style.display = "none";
         }
-    }
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
-
-    // Cerrar el modal
-    function closeModal() {
-        document.getElementById('modalTarea').style.display = "none";
-    }
-    // Función para abrir el modal de creación de tareas
-    function abrirModalCrearTarea() {
-        document.getElementById('modalCrearTarea').style.display = 'block';
-    }
-
-    // Función para cerrar el modal
-    function closeModalC() {
-        document.getElementById('modalCrearTarea').style.display = 'none';
-    }
-    function closeModalEditar() {
-        document.getElementById('modalEditarTarea').style.display = "none";
-    }
+   
+   
+   
 
 
 </script>

@@ -57,6 +57,13 @@ namespace ProyectoI.Controllers
             return Json(new { success = false, message = "Correo o contraseña incorrectos." });
         }
 
+        [HttpGet]
+        public IActionResult CerrarSesion()
+        {
+            return View(); 
+        }
+
+
     }
 }
 

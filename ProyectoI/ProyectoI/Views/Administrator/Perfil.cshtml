@@ -17,7 +17,11 @@
             <div class="col-md-6">
                 <div class="card shadow-lg">
                     <div class="card-header bg-primary text-white text-center">
-                        <h3>Editar Perfil</h3>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h2>Perfil Usuario</h2>
+
+                            <button id="btnVolver" onclick="volver()" class="btn btn-primary">Volver</button>
+                        </div>
                     </div>
                     <div class="card-body">
                         @if (ViewBag.Message != null)
