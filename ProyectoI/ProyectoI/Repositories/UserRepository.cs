@@ -116,17 +116,17 @@ namespace ProyectoI.Repositories
 
             return user;
         }
+
+        //metodo para actualizar nombre y correo de usuario
         public UserModel UpdateUser(UserModel user)
         {
             using SqlConnection connection = new(_connectionString);
-            string query = "EXEC ActualizarUsuario @id, @Nombre, @Correo, @Contrasenna";
+            string query = "EXEC ActualizarUsuario @id, @Nombre, @Correo";
 
             using SqlCommand command = new(query, connection);
             command.Parameters.AddWithValue("@id", user.Id);
             command.Parameters.AddWithValue("@Nombre", user.Nombre);
             command.Parameters.AddWithValue("@Correo", user.Correo);
-            command.Parameters.AddWithValue("@Contrasenna", user.Contrasenna);
-
             connection.Open();
             command.ExecuteNonQuery();
 
