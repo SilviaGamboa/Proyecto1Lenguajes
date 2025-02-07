@@ -33,7 +33,14 @@
                         <input type="password" class="form-control" id="contrasenna" name="contrasenna" required placeholder="Introduce tu contraseña" />
                     </div>
 
-                    <button type="submit" class="btn btn-primary w-100">Iniciar sesión</button>
+                    <button type="submit" class="btn btn-primary w-100" id="btnLogin">
+                                Iniciar sesión
+                            </button>
+                            <div class="text-center mt-3">
+                                <div id="spinner" class="spinner-border text-primary" style="width: 3rem; height: 3rem; display: none;" role="status">
+                                    <span class="visually-hidden">Cargando...</span>
+                                </div>
+                            </div>
                 </form>
 
                 <div class="text-center mt-3">
@@ -47,34 +54,57 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const form = document.querySelector("form");
+            const btnLogin = document.getElementById("btnLogin");
+            const spinner = document.getElementById("spinner");
 
             form.addEventListener("submit", function (event) {
                 event.preventDefault(); // Evita el envío tradicional del formulario
+
+                // Mostrar spinner y ocultar botón
+                btnLogin.style.display = "none";
+                spinner.style.display = "inline-block";
+
+                // Ocultar el spinner después de 30 segundos si la solicitud no ha terminado
+                const timeout = setTimeout(() => {
+                    spinner.style.display = "none";
+                    btnLogin.style.display = "block"; // Reaparece el botón después de 30s
+                    alert("Tiempo de espera agotado. Intenta de nuevo.");
+                }, 30000); // 30 segundos
 
                 let formData = new FormData(form);
 
                 fetch("/Account/Login", {
                     method: "POST",
-                    body: new URLSearchParams(formData) // Enviar los datos correctamente
+                    body: new URLSearchParams(formData)
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        if (data.isAdmin) {
-                            sessionStorage.setItem("admin", "true");
+                    .then(response => response.json())
+                    .then(data => {
+                        clearTimeout(timeout); // Cancela el timeout si la respuesta llega antes
+                        if (data.success) {
+                            if (data.isAdmin) {
+                                sessionStorage.setItem("admin", "true");
+                            } else {
+                                sessionStorage.setItem("user", JSON.stringify(data.user));
+                            }
+                            window.location.href = "/Home/Index"; // Redirigir a la página principal
                         } else {
-                            sessionStorage.setItem("user", JSON.stringify(data.user));
+                            alert(data.message);
+                            btnLogin.style.display = "block";
+                            spinner.style.display = "none";
                         }
-
-                        window.location.href = "/Home/Index"; // Redirigir a la página principal
-                    } else {
-                        alert(data.message);
-                    }
-                })
-                .catch(error => console.error("Error en la solicitud:", error));
+                    })
+                    .catch(error => {
+                        console.error("Error en la solicitud:", error);
+                        alert("Error en el servidor. Inténtalo de nuevo.");
+                        clearTimeout(timeout); // Cancela el timeout si hay error
+                        btnLogin.style.display = "block";
+                        spinner.style.display = "none";
+                    });
             });
         });
     </script>
+
+
 
 </body>
 </html>

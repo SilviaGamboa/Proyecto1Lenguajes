@@ -442,7 +442,7 @@
         selectUsuarios.innerHTML = '<option value="">Seleccione un usuario</option>';
 
         // Agregar cada usuario como opción
-        usuarios.slice(1).forEach(user => {
+        usuarios.forEach(user => {
             const option = document.createElement('option');
             option.value = user.id;  // Ajusta según la estructura de UserModel
             option.textContent = user.nombre;  // Ajusta según tu modelo
