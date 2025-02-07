@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoI.Repositories;
+using System.Threading.Tasks;
 
 namespace ProyectoI.Controllers
 {
@@ -26,12 +26,21 @@ namespace ProyectoI.Controllers
 
             if (user != null)
             {
-                // Aquí puedes agregar la lógica para almacenar al usuario en la sesión o en un token de autenticación.
-                return RedirectToAction("Index", "Home");
+                // Retornar un JSON con la información del usuario
+                return Json(new
+                {
+                    success = true,
+                    isAdmin = correo == "admin@example.com",
+                    user = new
+                    {
+                        id = user.Id,
+                        nombre = user.Nombre,
+                        correo = user.Correo
+                    }
+                });
             }
 
-            ViewBag.ErrorMessage = "Correo o contraseña incorrectos.";
-            return View();
+            return Json(new { success = false, message = "Correo o contraseña incorrectos." });
         }
     }
 }
