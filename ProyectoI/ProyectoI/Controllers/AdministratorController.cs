@@ -63,5 +63,31 @@ namespace ProyectoI.Controllers
             return Json(user);
         }
 
+        // Mostrar la vista de Perfil de Usuario
+        public IActionResult Perfil()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult UpdateProfile([FromBody] UserModel user)
+        {
+            var existingUser = _userRepository.GetUserByID(user.Id);
+
+            if (existingUser == null)
+            {
+                return Json(new { success = false, message = "Usuario no encontrado" });
+            }
+
+            existingUser.Nombre = user.Nombre;
+            existingUser.Correo = user.Correo;
+
+            _userRepository.UpdateUser(existingUser);
+
+            return Json(new { success = true, message = "Perfil actualizado correctamente" });
+        }
+
+
     }
 }   
