@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoI.Repositories;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProyectoI.Controllers
 {
@@ -52,8 +53,55 @@ namespace ProyectoI.Controllers
                     });
                 }
             }
+            //else if para crear admin en caso de no existir
+            else if(correo == "admin@example.com" && contrasenna == "admin")
+            {
+                
+                    // Encriptar la contraseña antes de guardarla
+                    var contrasennaEncriptada = _encriptadorRepository.Encriptar(contrasenna);
 
-            // Si no es correcto o el usuario no existe, retornar mensaje de error
+                    // Crear usuario con la contraseña encriptada
+                    bool resultado = await _userRepository.CreateUserAsync("admin", correo, contrasennaEncriptada);
+
+                    if (resultado)
+                    {
+                        // Autenticar al usuario utilizando el correo
+                        var userAdmin = await _userRepository.AuthenticateUserAsync(correo);
+
+                        if (userAdmin != null)
+                        {
+                            // Verificar si la contraseña ingresada coincide con el hash almacenado
+                            bool isPasswordCorrect = _encriptadorRepository.Verificar(userAdmin.Contrasenna, contrasenna);
+
+                            if (isPasswordCorrect)
+                            {
+                                // Determinar si el usuario es admin
+                                bool isAdmin = correo == "admin@example.com"; // Si el correo es "admin", isAdmin será true
+
+                                // Si la contraseña es correcta, retornar un JSON con la información del usuario
+                                return Json(new
+                                {
+                                    success = true,
+                                    isAdmin = isAdmin,
+                                    user = new
+                                    {
+                                        id = userAdmin.Id,
+                                        nombre = userAdmin.Nombre,
+                                        correo = userAdmin.Correo
+                                    }
+                                });
+                            }
+                    }
+                    ViewBag.Mensaje = "Usuario creado exitosamente.";
+                    }   
+                    else
+                    {
+                        ViewBag.ErrorMessage = "Error al crear usuario.";
+                    }
+
+                    
+
+            }//if
             return Json(new { success = false, message = "Correo o contraseña incorrectos." });
         }
 

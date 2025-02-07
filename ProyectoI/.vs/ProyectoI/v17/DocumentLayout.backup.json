@@ -3,48 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\controllers\\sendmailercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\controllers\\sendmailercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\views\\sendmailer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\views\\sendmailer\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\views\\tarea\\gettareas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\views\\tarea\\gettareas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\repositories\\tareasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\repositories\\tareasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\repositories\\encriptadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\repositories\\encriptadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\kenneth oshima\\onedrive\\documentos\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\repositories\\iencriptadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\repositories\\iencriptadorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 753,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,145 +42,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SendMailerController.cs",
-              "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\SendMailerController.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Controllers\\SendMailerController.cs",
-              "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\SendMailerController.cs",
-              "RelativeToolTip": "ProyectoI\\Controllers\\SendMailerController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwCUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T08:58:24.797Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\SendMailer\\Index.cshtml",
-              "RelativeDocumentMoniker": "ProyectoI\\Views\\SendMailer\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\SendMailer\\Index.cshtml",
-              "RelativeToolTip": "ProyectoI\\Views\\SendMailer\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-07T08:58:19.369Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GetTareas.cshtml",
-              "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
-              "RelativeDocumentMoniker": "ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
-              "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
-              "RelativeToolTip": "ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
-              "ViewState": "AgIAAOMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-07T08:46:34.672Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TareasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\TareasRepository.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Repositories\\TareasRepository.cs",
-              "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\TareasRepository.cs",
-              "RelativeToolTip": "ProyectoI\\Repositories\\TareasRepository.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA8AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T08:46:10.851Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Repositories\\IUserRepository.cs",
-              "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\IUserRepository.cs",
-              "RelativeToolTip": "ProyectoI\\Repositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T08:29:22.972Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "ProyectoI\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T08:23:11.986Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "ProyectoI\\Views\\Account\\Login.cshtml",
               "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "ProyectoI\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAEwAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAFsAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-07T07:52:01.327Z",
+              "WhenOpened": "2025-02-07T20:18:17.759Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\appsettings.json",
+              "RelativeDocumentMoniker": "ProyectoI\\appsettings.json",
+              "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\appsettings.json",
+              "RelativeToolTip": "ProyectoI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-07T20:13:51.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "ProyectoI\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\AccountController.cs",
               "RelativeToolTip": "ProyectoI\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADoAAAAAAAAAAAAIwEcAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T07:36:47.455Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AdministratorController.cs",
-              "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\AdministratorController.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Controllers\\AdministratorController.cs",
-              "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\AdministratorController.cs",
-              "RelativeToolTip": "ProyectoI\\Controllers\\AdministratorController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwCQAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T07:46:07.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "EncriptadorRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\EncriptadorRepository.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Repositories\\EncriptadorRepository.cs",
-              "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\EncriptadorRepository.cs",
-              "RelativeToolTip": "ProyectoI\\Repositories\\EncriptadorRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T07:35:29.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IEncriptadorRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\IEncriptadorRepository.cs",
-              "RelativeDocumentMoniker": "ProyectoI\\Repositories\\IEncriptadorRepository.cs",
-              "ToolTip": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\IEncriptadorRepository.cs",
-              "RelativeToolTip": "ProyectoI\\Repositories\\IEncriptadorRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T07:34:46.015Z",
+              "WhenOpened": "2025-02-07T19:41:50.738Z",
               "EditorCaption": ""
             }
           ]
