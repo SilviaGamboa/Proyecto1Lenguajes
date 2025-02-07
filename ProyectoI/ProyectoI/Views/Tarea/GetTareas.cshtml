@@ -5,7 +5,7 @@
 }
 
 <h2>Dashboard de Tareas</h2>
-<div>
+<div id="btnFunciones">
     <!-- Botón para abrir el modal -->
     <button id="btnCrearTarea" onclick="abrirModalCrearTarea()">Crear Tarea</button>
 </div>
@@ -81,6 +81,7 @@
             <option value="Finalizado">Finalizado</option>
         </select>
     </div>
+            <input type="hidden" id="UsuarioCreadorId" name="UsuarioCreadorId">
             <button type="submit">Crear Tarea</button>
         </form>
     </div>
@@ -111,7 +112,7 @@
 
         <div id="modalFooter" class="modal-footer">
             <button class="btn btn-warning" id="btnEditar">Editar</button>
-            @* <button class="btn btn-danger" id="btnEliminar">Eliminar</button> *@
+            
         </div>
     </div>
 </div>
@@ -171,6 +172,49 @@
 
 
 <script>
+
+    //cargar botones segun el usuario
+    const esAdmin = sessionStorage.getItem("admin") ; 
+
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log(esAdmin)
+        if (esAdmin) {
+            const btnFunciones = document.getElementById("btnFunciones");//div de botones
+
+            const btnGestionUsuarios = document.createElement("button");
+            btnGestionUsuarios.textContent = "Crear Usuarios";
+            btnGestionUsuarios.className="btn btn-primary"
+            btnGestionUsuarios.onclick = function () {
+                console.log("Redirige a gestión de usuarios");
+                window.location.href = "/Administrator/GestionUsuario";
+
+            };
+            const btnInvitacion = document.createElement("button");
+            btnInvitacion.textContent = "Envia Invitacion";
+            btnInvitacion.className = "btn btn-primary"
+            btnInvitacion.onclick = function () {
+                console.log("Redirige a gestión de usuarios");
+                window.location.href = "/SendMailer/Index";
+
+            };
+
+
+
+            btnFunciones.appendChild(btnInvitacion);
+            btnFunciones.appendChild(btnGestionUsuarios);
+        } else {
+            const btnEditarPerfil = document.createElement("button");
+            btnEditarPerfil.textContent = "Editar Perfil";
+            btnEditarPerfil.className = "btn btn-primary"
+            btnEditarPerfil.onclick = function () {
+                console.log("Redirige a editar perfil usuario");
+                // window.location.href = "gestion_usuarios.html";
+            };
+            btnFunciones.appendChild(btnEditarPerfil);
+        }
+    });
+
+
     // Permitir el drop de las tareas en las listas
     function allowDrop(ev) {
         ev.preventDefault();
@@ -248,7 +292,29 @@
                 });
         }
     }
+    //funcion para asignar el id del usuario creador
+    document.getElementById("formCrearTarea").onsubmit = function (event) {
+        let usuarioCreadorId;
 
+        const admin = sessionStorage.getItem("admin");
+
+        if (admin === "true") {
+            usuarioCreadorId = 1;
+        } else {
+            const userData = sessionStorage.getItem("user");
+            if (userData) {
+                const user = JSON.parse(userData);
+                usuarioCreadorId = user.id;
+            } else {
+                alert("Error: No se encontró información del usuario.");
+                event.preventDefault(); // Detiene el envío del formulario si no hay datos del usuario
+                return;
+            }
+        }
+
+        // Asignar el ID dinámicamente al campo oculto
+        document.getElementById("UsuarioCreadorId").value = usuarioCreadorId;
+    };
 
     // Mostrar detalles de la tarea en un modal
     async function verTarea(tareaId) {
@@ -272,7 +338,7 @@
             document.getElementById('modalFechaVencimiento').textContent = data.fechaVencimiento;
             document.getElementById('modalPrioridad').textContent = data.prioridad;
             document.getElementById('modalEstado').textContent = data.estado;
-           // document.getElementById('modalUsuarioCreador').textContent = obtenerNombreUsuario(data.usuarioCreadorId);
+           
             // Obtener y asignar el nombre del usuario creador
             const usuarioCreadorNombre = await obtenerNombreUsuario(data.usuarioCreadorId);
             document.getElementById('modalUsuarioCreador').textContent = usuarioCreadorNombre;
@@ -297,7 +363,7 @@
             }
 
             // Agregar botón de eliminar si el usuario es admin
-            if (true) {
+            if (esAdmin) {
                 let btnEliminar = document.getElementById('btnEliminar');
 
                 // Si el botón no existe, lo creamos y lo añadimos al modal
@@ -444,6 +510,8 @@
         closeModal();
         document.getElementById('modalEditarTarea').style.display = 'block';
     }
+
+    //Obtener nombre de usuario por id
 
     async function obtenerNombreUsuario(id) {
         try {
