@@ -1,6 +1,5 @@
 ﻿using ProyectoI.Models;
-using Microsoft.Data.SqlClient;  // Asegúrate de importar esto
-
+using Microsoft.Data.SqlClient;
 
 namespace ProyectoI.Repositories
 {
@@ -60,5 +59,79 @@ namespace ProyectoI.Repositories
 
             return result > 0;
         }
+
+        public List<UserModel> GetAllUsers()
+        {
+            var users = new List<UserModel>();
+            string query = "EXEC ObtenerUsuarios";
+
+            using (SqlConnection connection = new(_connectionString))
+            {
+                connection.Open();
+                using SqlCommand command = new(query, connection);
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var user = new UserModel
+                    {
+                        Id = reader.GetInt32(0),
+                        Nombre = reader["Nombre"]?.ToString() ?? string.Empty,
+                        Correo = reader["Correo"]?.ToString() ?? string.Empty,
+                        Contrasenna = ""
+                    };
+                    users.Add(user);
+                }
+            }
+            return users;
+        }
+
+        public UserModel GetUserByID(int id)
+        {
+            UserModel user = null;
+            string query = "EXEC ObtenerUsuarioPorId @id";
+
+            using (SqlConnection connection = new(_connectionString))
+            {
+                connection.Open();
+                using SqlCommand command = new(query, connection);
+                command.Parameters.AddWithValue("@id", id);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        user = new UserModel
+                        {
+                            Id = reader.GetInt32(0),
+                            Nombre = reader["Nombre"]?.ToString() ?? string.Empty,
+                            Correo = reader["Correo"]?.ToString() ?? string.Empty,
+                            Contrasenna = reader["Contrasenna"]?.ToString() ?? string.Empty
+                        };
+                    }
+                }
+            }
+
+            return user;
+        }
+        public UserModel UpdateUser(UserModel user)
+        {
+            using SqlConnection connection = new(_connectionString);
+            string query = "EXEC ActualizarUsuario @id, @Nombre, @Correo, @Contrasenna";
+
+            using SqlCommand command = new(query, connection);
+            command.Parameters.AddWithValue("@id", user.Id);
+            command.Parameters.AddWithValue("@Nombre", user.Nombre);
+            command.Parameters.AddWithValue("@Correo", user.Correo);
+            command.Parameters.AddWithValue("@Contrasenna", user.Contrasenna);
+
+            connection.Open();
+            command.ExecuteNonQuery();
+
+            return user;
+        }
+
     }//fin clase
 }

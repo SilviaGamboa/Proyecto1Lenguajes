@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using MailKit.Net.Smtp;
 using MimeKit;
 using System;
+using ProyectoI.Models;
 
 namespace ProyectoI.Controllers
 {
@@ -42,5 +43,25 @@ namespace ProyectoI.Controllers
 
             return RedirectToAction("GestionUsuario");
         }
+        //Obteber usuarios
+        [HttpGet]
+        public IActionResult GetUsers()
+        {
+            List<UserModel> users = _userRepository.GetAllUsers();
+            return Json(users);
+        }
+
+        //Obtener usuario por id
+        [HttpGet]
+        public IActionResult GetUserById(int id)
+        {
+            var user = _userRepository.GetUserByID(id);
+            if (user == null)
+            {
+                return NotFound("Usuario no encontrado");
+            }
+            return Json(user);
+        }
+
     }
 }   

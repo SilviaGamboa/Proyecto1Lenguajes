@@ -1,7 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Kenneth Oshima\\OneDrive\\Documentos\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\views\\tarea\\gettareas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\views\\tarea\\gettareas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\controllers\\administratorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\controllers\\tareacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\controllers\\tareacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|c:\\users\\user\\documents\\github\\proyecto1lenguajes\\proyectoi\\proyectoi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3B757D7E-71B8-482C-8895-F4D2FFE28B90}|ProyectoI\\ProyectoI.csproj|solutionrelative:proyectoi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,12 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 753,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -26,6 +47,88 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdministratorController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\AdministratorController.cs",
+              "RelativeDocumentMoniker": "ProyectoI\\Controllers\\AdministratorController.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\AdministratorController.cs",
+              "RelativeToolTip": "ProyectoI\\Controllers\\AdministratorController.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAAADYAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T01:17:38.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "ProyectoI\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "ProyectoI\\Repositories\\UserRepository.cs",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAewGkAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T01:11:09.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "ProyectoI\\Repositories\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Repositories\\IUserRepository.cs",
+              "RelativeToolTip": "ProyectoI\\Repositories\\IUserRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T01:10:26.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetTareas.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
+              "RelativeDocumentMoniker": "ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
+              "RelativeToolTip": "ProyectoI\\Views\\Tarea\\GetTareas.cshtml",
+              "ViewState": "AQIAAAEBAAAAAAAAAAAAAB8BAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-06T23:47:46.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TareaController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\TareaController.cs",
+              "RelativeDocumentMoniker": "ProyectoI\\Controllers\\TareaController.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\Controllers\\TareaController.cs",
+              "RelativeToolTip": "ProyectoI\\Controllers\\TareaController.cs",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAIwHUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-06T23:46:53.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\appsettings.json",
+              "RelativeDocumentMoniker": "ProyectoI\\appsettings.json",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Proyecto1Lenguajes\\ProyectoI\\ProyectoI\\appsettings.json",
+              "RelativeToolTip": "ProyectoI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-06T23:31:02.166Z",
+              "EditorCaption": ""
             }
           ]
         }

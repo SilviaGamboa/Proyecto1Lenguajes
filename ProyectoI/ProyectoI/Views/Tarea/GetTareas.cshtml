@@ -100,12 +100,22 @@
         <p><strong>Fecha Vencimiento:</strong> <span id="modalFechaVencimiento"></span></p>
         <p><strong>Prioridad:</strong> <span id="modalPrioridad"></span></p>
         <p><strong>Estado:</strong> <span id="modalEstado"></span></p>
+        <p><strong>Creada por:</strong> <span id="modalUsuarioCreador"></span></p>
         <p><strong>Usuario Asignado:</strong> <span id="modalUsuarioAsignado"></span></p>
 
-        <!-- Botón para abrir el modal de edición -->
-        <button class="btn btn-warning" id="btnEditar">Editar</button>
+        <!-- Select para asignar usuario -->
+        <label for="selectUsuarios"><strong>Asignar tarea a:</strong></label>
+        <select id="selectUsuarios" onchange="asignarUsuarioATarea()">
+            <option value="">Seleccione un usuario</option>
+        </select>
+
+        <div id="modalFooter" class="modal-footer">
+            <button class="btn btn-warning" id="btnEditar">Editar</button>
+            @* <button class="btn btn-danger" id="btnEliminar">Eliminar</button> *@
+        </div>
     </div>
 </div>
+
 
 <!-- Modal para editar tarea -->
 <div id="modalEditarTarea" class="modal">
@@ -187,7 +197,7 @@
         // Mapeo de estados
         var estadoMap = {
             "Pendientes": "Pendientes",
-            "EnProgreso": "EnProgreso", // Cambiar "En Progreso" por "EnProgreso"
+            "EnProgreso": "EnProgreso", 
             "Finalizado": "Finalizado"
         };
 
@@ -201,7 +211,7 @@
                 },
                 body: JSON.stringify({
                     tareaId: parseInt(tareaId),  // Convertir tareaId a entero
-                    nuevoEstado: nuevoEstado     // Asegúrate de que nuevoEstado sea una cadena
+                    nuevoEstado: nuevoEstado     
                 })
             })
                 .then(response => {
@@ -212,7 +222,7 @@
                     return response.json(); // Procesamos la respuesta como JSON
                 })
                 .then(data => {
-                 //   alert(data.message);  // Muestra el mensaje de la respuesta
+                 
                     const tareaElemento = document.getElementById('tarea_' + data.tareaId);
 
                     if (tareaElemento) {
@@ -246,6 +256,7 @@
             const response = await fetch(`/Tarea/ObtenerTarea?id=${tareaId}`);
 
             // Verificar si la respuesta es exitosa
+            console.log(response)
             if (!response.ok) {
                 throw new Error('Hubo un error en la respuesta del servidor');
             }
@@ -261,7 +272,21 @@
             document.getElementById('modalFechaVencimiento').textContent = data.fechaVencimiento;
             document.getElementById('modalPrioridad').textContent = data.prioridad;
             document.getElementById('modalEstado').textContent = data.estado;
-            document.getElementById('modalUsuarioAsignado').textContent = data.usuarioAsignadoId;
+           // document.getElementById('modalUsuarioCreador').textContent = obtenerNombreUsuario(data.usuarioCreadorId);
+            // Obtener y asignar el nombre del usuario creador
+            const usuarioCreadorNombre = await obtenerNombreUsuario(data.usuarioCreadorId);
+            document.getElementById('modalUsuarioCreador').textContent = usuarioCreadorNombre;
+
+            const usuarioAsignadoElement = document.getElementById('modalUsuarioAsignado');
+
+            // Si `usuarioAsignadoId` es un número válido, obtener su nombre, si no, mostrar mensaje
+            if (data.usuarioAsignadoId && !isNaN(data.usuarioAsignadoId)) {
+                const usuarioAsignadoNombre = await obtenerNombreUsuario(data.usuarioAsignadoId);
+                usuarioAsignadoElement.textContent = usuarioAsignadoNombre;
+            } else {
+                usuarioAsignadoElement.textContent = "Aún no ha sido asignada a ningún usuario";
+            }
+            
 
             // Asegurar que el botón de edición existe antes de asignarle el evento
             const btnEditar = document.getElementById('btnEditar');
@@ -271,6 +296,27 @@
                 };
             }
 
+            // Agregar botón de eliminar si el usuario es admin
+            if (true) {
+                let btnEliminar = document.getElementById('btnEliminar');
+
+                // Si el botón no existe, lo creamos y lo añadimos al modal
+                if (!btnEliminar) {
+                    btnEliminar = document.createElement('button');
+                    btnEliminar.id = 'btnEliminar';
+                    btnEliminar.textContent = 'Eliminar';
+                    btnEliminar.className = "btn btn-danger";
+                    // Llamar a la función eliminarTarea cuando se haga clic
+                    btnEliminar.onclick = function () {
+                        eliminarTarea(data.id);
+                    };
+
+                    // Agregar el botón al modal
+                    document.getElementById('modalFooter').appendChild(btnEliminar);
+                }
+            }
+            cargarUsuariosEnSelect();
+            
             // Mostrar el modal
             document.getElementById('modalTarea').style.display = "block";
         } catch (error) {
@@ -278,6 +324,103 @@
             alert('Hubo un error al obtener los detalles de la tarea.');
         }
     }
+
+    //Funcion Eliminar Tarea
+    async function eliminarTarea(tareaId) {
+        if (confirm('¿Estás seguro de que deseas eliminar esta tarea?')) {
+            try {
+                const response = await fetch(`/Tarea/EliminarTarea`, {
+                    method: 'POST',  
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `id=${tareaId}`
+                });
+
+                if (!response.ok) {
+                    throw new Error('No se pudo eliminar la tarea');
+                }
+
+                alert('Tarea eliminada con éxito');
+                document.getElementById('modalTarea').style.display = "none";
+                location.reload(); // Recargar la página para actualizar la lista de tareas
+            } catch (error) {
+                console.error('Error al eliminar la tarea:', error);
+                alert('Hubo un error al eliminar la tarea.');
+            }
+        }
+    }
+    //funcion obtener usuarios
+        async function obtenerUsuarios() {
+        try {
+            const response = await fetch('/Administrator/GetUsers'); // Asegúrate de que la ruta sea correcta
+
+            if (!response.ok) {
+                throw new Error('Error al obtener la lista de usuarios');
+            }
+
+            const usuarios = await response.json();
+            console.log(usuarios);
+            return usuarios;
+        } catch (error) {
+            console.error('Error:', error);
+            return [];
+        }
+    }
+
+    async function cargarUsuariosEnSelect() {
+        const usuarios = await obtenerUsuarios();
+        const selectUsuarios = document.getElementById('selectUsuarios');
+
+        // Limpiar opciones previas
+        selectUsuarios.innerHTML = '<option value="">Seleccione un usuario</option>';
+
+        // Agregar cada usuario como opción
+        usuarios.slice(1).forEach(user => {
+            const option = document.createElement('option');
+            option.value = user.id;  // Ajusta según la estructura de UserModel
+            option.textContent = user.nombre;  // Ajusta según tu modelo
+            selectUsuarios.appendChild(option);
+        });
+    }
+
+    
+    //Funcion asignar usuario a tarea
+    async function asignarUsuarioATarea() {
+        const selectUsuarios = document.getElementById('selectUsuarios');
+        const usuarioId = selectUsuarios.value;
+        const tareaId = document.getElementById('modalId').textContent;
+
+        if (!usuarioId || !tareaId) {
+            console.error("Debe seleccionar un usuario y asegurarse de que la tarea tenga un ID válido.");
+            return;
+        }
+
+        console.log("Enviando:", { tareaId, usuarioId });
+
+        try {
+            const response = await fetch(`/Tarea/AsignarUsuario?tareaId=${tareaId}&usuarioId=${usuarioId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Error al asignar usuario a la tarea');
+            }
+
+            console.log(`Usuario ${usuarioId} asignado a la tarea ${tareaId} correctamente`);
+            alert("Usuario asignado correctamente a la tarea.");
+            location.reload();
+
+        } catch (error) {
+            console.error('Error:', error);
+            alert("No se pudo asignar el usuario a la tarea.");
+        }
+    }
+
+
 
 
     // Función para abrir el modal de editar tarea y cargar los datos
@@ -302,6 +445,21 @@
         document.getElementById('modalEditarTarea').style.display = 'block';
     }
 
+    async function obtenerNombreUsuario(id) {
+        try {
+            const response = await fetch(`/Administrator/GetUserById?id=${id}`);
+
+            if (!response.ok) {
+                throw new Error("Usuario no encontrado");
+            }
+
+            const user = await response.json();
+            return user.nombre; // Ajusta según la estructura de tu modelo
+        } catch (error) {
+            console.error("Error al obtener el usuario:", error);
+            return "Usuario no encontrado"; // Mensaje en caso de error
+        }
+    }
 
 
 
@@ -409,4 +567,7 @@
         button:hover {
             background-color: #45a049;
         }
+
+   
+
 </style>

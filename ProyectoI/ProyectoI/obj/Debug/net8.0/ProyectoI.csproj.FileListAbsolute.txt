@@ -160,3 +160,8 @@ C:\Users\Kenneth Oshima\OneDrive\Documentos\GitHub\Proyecto1Lenguajes\ProyectoI\
 C:\Users\Kenneth Oshima\OneDrive\Documentos\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI\obj\Debug\net8.0\ProyectoI.pdb
 C:\Users\Kenneth Oshima\OneDrive\Documentos\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI\obj\Debug\net8.0\ProyectoI.genruntimeconfig.cache
 C:\Users\Kenneth Oshima\OneDrive\Documentos\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI\obj\Debug\net8.0\ref\ProyectoI.dll
+C:\Users\User\Documents\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\User\Documents\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI\bin\Debug\net8.0\MailKit.dll
+C:\Users\User\Documents\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI\bin\Debug\net8.0\MimeKit.dll
+C:\Users\User\Documents\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI\bin\Debug\net8.0\System.Formats.Asn1.dll
+C:\Users\User\Documents\GitHub\Proyecto1Lenguajes\ProyectoI\ProyectoI\obj\Debug\net8.0\ProyectoI.sourcelink.json
