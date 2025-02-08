@@ -26,6 +26,19 @@
             </div>
         </fieldset>
     </form>
+    @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+    {
+        <div class="alert alert-success text-center">
+            @ViewBag.SuccessMessage
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger text-center">
+            @ViewBag.ErrorMessage
+        </div>
+    }
 </div>
 
 <script>

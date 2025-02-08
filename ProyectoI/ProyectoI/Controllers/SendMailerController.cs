@@ -32,6 +32,13 @@ namespace ProyectoI.Controllers
             {
                 try
                 {
+                    var usuarioExistente = _userRepository.GetUserByCorreo(model.To);
+                    if (usuarioExistente != null)
+                    {
+                        ViewBag.ErrorMessage = "El correo ya está registrado o ya fue invitado.";
+                        return View(model);
+                    }
+
                     string contrasennaGenerada = _emailRepository.GenerarContrasennaSegura();
 
                     string contrasennaEncriptada = _encriptadorRepository.Encriptar(contrasennaGenerada);
@@ -43,6 +50,7 @@ namespace ProyectoI.Controllers
                         bool emailEnviado = await _emailRepository.SendEmailAsync(model, contrasennaGenerada);
                         if (emailEnviado)
                         {
+                            ViewBag.SuccessMessage = "Invitación enviada correctamente";
                             ModelState.Clear();
                             return View(new MailModel());
                         }

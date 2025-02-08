@@ -7,6 +7,7 @@ namespace ProyectoI.Repositories
         // Método para autenticar al usuario por nombre y contraseña
         Task<UserModel> AuthenticateUserAsync(string correo);
 
+        Task<bool> CreateUserValidadoAsync(string nombre, string correo, string contrasenna);
         Task<bool> CreateUserAsync(string nombre, string correo, string contrasenna);
         List<UserModel> GetAllUsers();
 
@@ -14,6 +15,7 @@ namespace ProyectoI.Repositories
 
         UserModel UpdateUser(UserModel user);
 
+        public UserModel GetUserByCorreo(string correo);
 
 
     }

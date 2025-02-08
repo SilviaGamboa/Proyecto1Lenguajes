@@ -26,11 +26,9 @@ namespace ProyectoI.Controllers
         [HttpPost]
         public async Task<IActionResult> GestionUsuario(string nombre, string correo, string contrasenna)
         {
-            // Encriptar la contraseña antes de guardarla
             var contrasennaEncriptada = _encriptadorRepository.Encriptar(contrasenna);
 
-            // Crear usuario con la contraseña encriptada
-            bool resultado = await _userRepository.CreateUserAsync(nombre, correo, contrasennaEncriptada);
+            bool resultado = await _userRepository.CreateUserValidadoAsync(nombre, correo, contrasennaEncriptada);
 
             if (resultado)
             {
@@ -38,11 +36,12 @@ namespace ProyectoI.Controllers
             }
             else
             {
-                ViewBag.ErrorMessage = "Error al crear usuario.";
+                ViewBag.ErrorMessage = "Error: Ya existe un usuario con ese nombre o correo.";
             }
 
-            return RedirectToAction("GestionUsuario");
+            return View(); // Muestra la vista nuevamente con los mensajes de error o éxito
         }
+
 
         // Obtener usuarios
         [HttpGet]

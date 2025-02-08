@@ -12,6 +12,19 @@
         <div class="col-md-12">
             <div class="card shadow p-4">
                 <h4>Crear Usuario Manualmente</h4>
+                @if (ViewBag.Mensaje != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @ViewBag.Mensaje
+                    </div>
+                }
+
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.ErrorMessage
+                    </div>
+                }
                 <form method="post" asp-action="GestionUsuario">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
