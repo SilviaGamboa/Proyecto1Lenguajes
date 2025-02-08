@@ -5,15 +5,13 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center">
         <h2>Gestión de Usuarios</h2>
-      
-        <button id="btnVolver" onclick="volver()" class="btn btn-primary">Volver</button>
+        <button id="btnVolver" onclick="volver()" class="btn btn-primary-custom">Volver</button>
     </div>
-   
+
     <div class="row">
-        <!-- Crear usuario manualmente -->
-        <div class="col-md-12s">
+        <div class="col-md-12">
             <div class="card shadow p-4">
-                <h4 class="text-primary">Crear Usuario Manualmente</h4>
+                <h4>Crear Usuario Manualmente</h4>
                 <form method="post" asp-action="GestionUsuario">
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
@@ -28,7 +26,7 @@
                         <input type="password" class="form-control" id="contrasenna" name="contrasenna" required>
                     </div>
 
-                    <button type="submit" class="btn btn-success w-100">Crear Usuario</button>
+                    <button type="submit" class="btn btn-success-custom w-100">Crear Usuario</button>
                 </form>
             </div>
         </div>
@@ -41,3 +39,64 @@
     }
 </script>
 
+<style>
+    /* Estilos generales */
+    h2, h4 {
+        color: #124f91 !important;
+        font-weight: bold;
+    }
+
+    label {
+        color: #124f91;
+        font-weight: bold;
+    }
+
+    .container {
+        max-width: 800px;
+    }
+
+    /* Estilos de los botones */
+    .btn-primary-custom {
+        background-color: #124f91 !important;
+        border-color: #124f91 !important;
+        color: white !important;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary-custom:hover {
+            background-color: #0e3b6c !important;
+            border-color: #0e3b6c !important;
+        }
+
+        .btn-primary-custom:active {
+            background-color: #0a2a4d !important;
+            border-color: #0a2a4d !important;
+        }
+
+    .btn-success-custom {
+        background-color: #124f91 !important;
+        border-color: #124f91 !important;
+        color: white !important;
+    }
+
+        .btn-success-custom:hover {
+            background-color: #0e3b6c !important;
+            border-color: #0e3b6c !important;
+        }
+
+        .btn-success-custom:active {
+            background-color: #0a2a4d !important;
+            border-color: #0a2a4d !important;
+        }
+
+    /* Estilos del formulario */
+    .card {
+        border-color: #124f91 !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-control {
+        border-color: #124f91 !important;
+    }
+
+</style>

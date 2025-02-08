@@ -4,10 +4,11 @@
     ViewData["Title"] = "Dashboard de Tareas";
 }
 
-<h2 class="text-center text-dark fw-bold">Dashboard de Tareas  </h2>
-<div id="btnFunciones" class="container text-center mt-4">
+<h2 class="text-center fw-bold" style="color: #124f91;">Dashboard de Tareas</h2>
+
+<div id="btnFunciones" class="container text-center mt-4" style="display: flex; flex-wrap: wrap; gap: 10px;">
     <!-- Botón para abrir el modal -->
-    <button id="btnCrearTarea" class="btn btn-success" onclick="abrirModalCrearTarea()">Crear Tarea</button>
+    <button id="btnCrearTarea" class="btn btn-success" style="background-color: #124f91; border-color: #124f91;" onclick="abrirModalCrearTarea()">Crear Tarea</button>
 </div>
 
 
@@ -177,16 +178,18 @@
     const esAdmin = sessionStorage.getItem("admin") ; //VARIABLE PARA SABER SI EL USUARIO LOGADO ES ADMIN O NO Y ASI PONER LAS FUNCIONES SEGUN SEA
 
     document.addEventListener("DOMContentLoaded", function () {
-        console.log(esAdmin)
-        if (esAdmin) {
-            const btnFunciones = document.getElementById("btnFunciones"); // Div de botones
-           btnFunciones.style.display = "flex";
-            btnFunciones.style.flexWrap = "wrap";
-            btnFunciones.style.gap = "10px"; 
+        console.log(esAdmin);
+        const btnFunciones = document.getElementById("btnFunciones");
+        btnFunciones.style.display = "flex";
+        btnFunciones.style.flexWrap = "wrap";
+        btnFunciones.style.gap = "10px";
 
+        if (esAdmin) {
             const btnGestionUsuarios = document.createElement("button");
             btnGestionUsuarios.textContent = "Crear Usuarios";
             btnGestionUsuarios.className = "btn btn-primary";
+            btnGestionUsuarios.style.backgroundColor = "#124f91";
+            btnGestionUsuarios.style.borderColor = "#124f91";
             btnGestionUsuarios.onclick = function () {
                 console.log("Redirige a gestión de usuarios");
                 window.location.href = "/Administrator/GestionUsuario";
@@ -195,6 +198,8 @@
             const btnInvitacion = document.createElement("button");
             btnInvitacion.textContent = "Enviar Invitación";
             btnInvitacion.className = "btn btn-primary";
+            btnInvitacion.style.backgroundColor = "#124f91";
+            btnInvitacion.style.borderColor = "#124f91";
             btnInvitacion.onclick = function () {
                 console.log("Redirige a envío de invitaciones");
                 window.location.href = "/SendMailer/Index";
@@ -203,14 +208,11 @@
             btnFunciones.appendChild(btnInvitacion);
             btnFunciones.appendChild(btnGestionUsuarios);
         } else {
-            const btnFunciones = document.getElementById("btnFunciones");
-           btnFunciones.style.display = "flex";
-           btnFunciones.style.flexWrap = "wrap";
-           btnFunciones.style.gap = "10px"; 
-
             const btnEditarPerfil = document.createElement("button");
             btnEditarPerfil.textContent = "Editar Perfil";
             btnEditarPerfil.className = "btn btn-primary";
+            btnEditarPerfil.style.backgroundColor = "#124f91";
+            btnEditarPerfil.style.borderColor = "#124f91";
             btnEditarPerfil.onclick = function () {
                 console.log("Redirige a editar perfil de usuario");
                 window.location.href = "/Administrator/Perfil";
@@ -596,7 +598,7 @@
 <style>
     /* Estilos para el dashboard */
     .task-list {
-        border: 2px solid #ddd;
+        border: 2px solid #124f91;
         padding: 15px;
         width: 30%;
         min-height: 300px;
@@ -608,34 +610,35 @@
     }
 
         .task-list h3 {
-            color: #333;
+            color: #124f91;
             font-size: 18px;
             margin-bottom: 10px;
         }
 
         .task-list:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(18, 79, 145, 0.2);
         }
 
     /* Estilos para las tareas */
     .task {
-        background-color: #fff;
+        background-color: #ffffff;
         padding: 15px;
         margin: 10px;
         border-radius: 6px;
         cursor: move;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px rgba(18, 79, 145, 0.2);
         transition: all 0.3s ease;
+        border-left: 5px solid #124f91;
     }
 
         .task:hover {
-            background-color: #f1f1f1;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #e3efff;
+            box-shadow: 0 4px 12px rgba(18, 79, 145, 0.3);
         }
 
         .task p {
             margin: 0;
-            color: #666;
+            color: #124f91;
         }
 
     /* Estilos del modal */
@@ -652,17 +655,17 @@
     }
 
     .modal-content {
-        background-color: #fff;
+        background-color: #ffffff;
         margin: 5% auto;
         padding: 20px;
         border-radius: 8px;
         width: 80%;
         max-width: 600px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 15px rgba(18, 79, 145, 0.3);
     }
 
     .close {
-        color: #999;
+        color: #124f91;
         font-size: 30px;
         font-weight: bold;
         float: right;
@@ -671,9 +674,10 @@
 
         .close:hover,
         .close:focus {
-            color: #333;
+            color: #0d3b73;
         }
 
+    /* Formulario */
     form {
         display: flex;
         flex-direction: column;
@@ -682,15 +686,16 @@
 
     input, textarea, select {
         padding: 10px;
-        border: 1px solid #ddd;
+        border: 1px solid #124f91;
         border-radius: 6px;
         font-size: 16px;
-        color: #333;
+        color: #124f91;
+        background-color: #e3efff;
     }
 
     button {
         padding: 12px 25px;
-        background-color: #007bff;
+        background-color: #124f91;
         color: white;
         border: none;
         border-radius: 6px;
@@ -700,11 +705,11 @@
     }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #0d3b73;
         }
 
         button:active {
-            background-color: #003f7d;
+            background-color: #092b57;
         }
 
     .btn-secondary {
@@ -724,10 +729,44 @@
 
     .form-group label {
         font-weight: bold;
-        color: #333;
+        color: #124f91;
     }
 
     .form-group {
         margin-bottom: 15px;
     }
+    /* Estilos para botones generales */
+    .btn-primary-custom {
+        background-color: #124f91 !important;
+        border-color: #124f91 !important;
+        color: white !important;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary-custom:hover {
+            background-color: #0e3b6c !important;
+            border-color: #0e3b6c !important;
+        }
+
+        .btn-primary-custom:active {
+            background-color: #0a2a4d !important;
+            border-color: #0a2a4d !important;
+        }
+
+    .btn-success-custom {
+        background-color: #124f91 !important;
+        border-color: #124f91 !important;
+        color: white !important;
+    }
+
+        .btn-success-custom:hover {
+            background-color: #0e3b6c !important;
+            border-color: #0e3b6c !important;
+        }
+
+        .btn-success-custom:active {
+            background-color: #0a2a4d !important;
+            border-color: #0a2a4d !important;
+        }
+
 </style>

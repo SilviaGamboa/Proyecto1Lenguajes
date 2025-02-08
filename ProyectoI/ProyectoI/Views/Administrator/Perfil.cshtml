@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/custom-styles.css" rel="stylesheet"> <!-- Enlace al CSS personalizado -->
 </head>
 <body>
 
@@ -16,11 +17,10 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card shadow-lg">
-                    <div class="card-header bg-primary text-white text-center">
+                    <div class="card-header text-center">
                         <div class="d-flex justify-content-between align-items-center">
                             <h2>Perfil Usuario</h2>
-
-                            <button id="btnVolver" onclick="volver()" class="btn btn-primary">Volver</button>
+                            <button id="btnVolver" onclick="volver()" class="btn btn-primary-custom">Volver</button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -42,7 +42,7 @@
                                 <input type="email" id="correo" class="form-control" required placeholder="Ingresa tu correo" />
                             </div>
 
-                            <button type="submit" class="btn btn-primary w-100">Guardar Cambios</button>
+                            <button type="submit" class="btn btn-primary-custom w-100">Guardar Cambios</button>
                         </form>
                     </div>
                 </div>
@@ -54,14 +54,12 @@
         document.addEventListener("DOMContentLoaded", function () {
             let user = JSON.parse(sessionStorage.getItem("user"));
 
-            //si no te logueate te devuelve
             if (!user) {
                 alert("No has iniciado sesión.");
                 window.location.href = "/Account/Login";
                 return;
             }
 
-            // Rellenar el formulario con los datos del usuario
             document.getElementById("id").value = user.id;
             document.getElementById("nombre").value = user.nombre;
             document.getElementById("correo").value = user.correo;
@@ -80,28 +78,69 @@
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(updatedUser)
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert("Perfil actualizado exitosamente.");
-                        sessionStorage.setItem("user", JSON.stringify(updatedUser));
-                    } else {
-                        alert("Error al actualizar perfil.");
-                    }
-                })
-                .catch(error => console.error("Error:", error));
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Perfil actualizado exitosamente.");
+                            sessionStorage.setItem("user", JSON.stringify(updatedUser));
+                        } else {
+                            alert("Error al actualizar perfil.");
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
             });
         });
 
-        // Función que redirige a la vista Tareas/GetTareas
         function volver() {
-            // Redirigir a la vista Tareas/GetTareas
             window.location.href = '/Tarea/GetTareas';
         }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
 
+        /* Estilos generales */
+        h2, label {
+            color: #124f91;
+            font-weight: bold;
+        }
+
+        .card-header {
+            background-color: #124f91 !important;
+            color: white !important;
+        }
+
+        /* Estilos de los botones */
+        .btn-primary-custom {
+            background-color: #124f91 !important;
+            border-color: #124f91 !important;
+            color: white !important;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-primary-custom:hover {
+                background-color: #0e3b6c !important;
+                border-color: #0e3b6c !important;
+            }
+
+        .btn-secondary-custom {
+            background-color: #6c757d !important;
+            border-color: #6c757d !important;
+            color: white !important;
+        }
+
+            .btn-secondary-custom:hover {
+                background-color: #5a6268 !important;
+                border-color: #545b62 !important;
+            }
+
+        /* Sombra en la tarjeta */
+        .card {
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+    </style>
 </body>
 </html>
-

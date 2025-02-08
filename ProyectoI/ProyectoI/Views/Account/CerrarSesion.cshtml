@@ -1,18 +1,18 @@
 ﻿@{
-    ViewData["Title"] = "Cerrar Sesion";
+    ViewData["Title"] = "Cerrar Sesión";
 }
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div id="confirmLogout" class="text-center">
                 <p>¿Está seguro que desea cerrar sesión?</p>
-                <button class="btn btn-primary" onclick="confirmarCerrarSesion()">Sí</button>
-                <button class="btn btn-secondary" onclick="cancelarCerrarSesion()">No</button>
+                <button class="btn btn-primary-custom" onclick="confirmarCerrarSesion()">Sí</button>
+                <button class="btn btn-secondary-custom" onclick="cancelarCerrarSesion()">No</button>
             </div>
 
             <!-- Spinner oculto, centrado en el container -->
-            <div class="text-center mt-3" id="spinnerContainer" style="display: none;">
-                <div id="spinner" class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <div class="text-center mt-3" id="spinnerContainer">
+                <div id="spinner" class="spinner-border text-primary" role="status">
                     <span class="visually-hidden">Cerrando sesión...</span>
                 </div>
             </div>
@@ -22,27 +22,67 @@
 
 <script>
     function confirmarCerrarSesion() {
-        // Mostrar spinner y ocultar los botones
         document.getElementById("confirmLogout").style.display = "none";
         document.getElementById("spinnerContainer").style.display = "block";
-
-        // Limpiar sessionStorage
         sessionStorage.clear();
-
-        // Simular un pequeño retraso antes de redirigir
         setTimeout(() => {
             window.location.href = "/Account/Login";
         }, 3000);
     }
 
     function cancelarCerrarSesion() {
+        document.getElementById("confirmLogout").style.display = "none";
+        document.getElementById("spinnerContainer").style.display = "block";
         setTimeout(() => {
-            // Mostrar spinner y ocultar los botones
-            document.getElementById("confirmLogout").style.display = "none";
-            document.getElementById("spinnerContainer").style.display = "block";
             window.location.href = "/Tarea/GetTareas";
         }, 1000);
-       
     }
 </script>
+<style>
+    /* Estilos generales */
+    h2, p {
+    color: #124f91;
+    font-weight: bold;
+    text-align: center;
+    }
 
+    /* Contenedor */
+    .container {
+    max-width: 600px;
+    }
+
+    /* Estilos de los botones */
+    .btn-primary-custom {
+    background-color: #124f91 !important;
+    border-color: #124f91 !important;
+    color: white !important;
+    transition: background-color 0.3s ease;
+    }
+
+    .btn-primary-custom:hover {
+    background-color: #0e3b6c !important;
+    border-color: #0e3b6c !important;
+    }
+
+    .btn-secondary-custom {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: white !important;
+    }
+
+    .btn-secondary-custom:hover {
+    background-color: #5a6268 !important;
+    border-color: #545b62 !important;
+    }
+
+    /* Spinner */
+    #spinnerContainer {
+    display: none;
+    }
+
+    .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    }
+
+</style>

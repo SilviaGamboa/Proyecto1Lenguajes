@@ -3,12 +3,11 @@
 @{
     ViewBag.Title = "Enviar Correo";
 }
+
 <div class="d-flex justify-content-between align-items-center">
-    <h2 class=" text-dark fw-bol">Enviar invitación por correo</h2>
-
-    <button id="btnVolver" onclick="volver()" class="btn btn-primary">Volver</button>
+    <h2 class="fw-bold">Enviar invitación por correo</h2>
+    <button id="btnVolver" onclick="volver()" class="btn btn-primary-custom">Volver</button>
 </div>
-
 
 <div class="container">
     <form method="post">
@@ -23,21 +22,77 @@
 
             <!-- Botón para enviar -->
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-success btn-lg w-50">Enviar Correo</button>
+                <button type="submit" class="btn btn-success-custom btn-lg w-50">Enviar Correo</button>
             </div>
         </fieldset>
     </form>
 </div>
 
 <script>
-    // Función que redirige a la vista Tareas/GetTareas
     function volver() {
-        // Redirigir a la vista Tareas/GetTareas
         window.location.href = '/Tarea/GetTareas';
     }
 </script>
 
+ <style>
+    /* Estilos para los botones */
+    .btn-primary-custom {
+        background-color: #124f91 !important;
+        border-color: #124f91 !important;
+        color: white !important;
+        transition: background-color 0.3s ease;
+    }
 
+        .btn-primary-custom:hover {
+            background-color: #0e3b6c !important;
+            border-color: #0e3b6c !important;
+        }
 
+        .btn-primary-custom:active {
+            background-color: #0a2a4d !important;
+            border-color: #0a2a4d !important;
+        }
 
+    .btn-success-custom {
+        background-color: #124f91 !important;
+        border-color: #124f91 !important;
+        color: white !important;
+    }
 
+        .btn-success-custom:hover {
+            background-color: #0e3b6c !important;
+            border-color: #0e3b6c !important;
+        }
+
+        .btn-success-custom:active {
+            background-color: #0a2a4d !important;
+            border-color: #0a2a4d !important;
+        }
+
+    /* Estilos para el formulario */
+    fieldset {
+        border-color: #124f91 !important;
+        border-width: 2px;
+    }
+
+    legend {
+        color: #124f91;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    h2 {
+        color: #124f91;
+        font-weight: bold;
+    }
+
+    label {
+        color: #124f91;
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-color: #124f91 !important;
+    }
+
+</style>
